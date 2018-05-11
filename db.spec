@@ -1,6 +1,6 @@
 Name:           db
 Version:        5.3.28
-Release:        14
+Release:        15
 License:        Sleepycat
 Summary:        Berkeley Database v5
 Url:            http://www.oracle.com/technology/products/berkeley-db/db/index.html
@@ -8,7 +8,7 @@ Group:          libs
 Source0:        http://download.oracle.com/berkeley-db/db-5.3.28.tar.gz
 BuildRequires:  libstdc++-dev
 Conflicts:      db3
-
+Patch1: 	atomic.patch
 %description
 Berkeley Database v5.
 
@@ -43,6 +43,7 @@ Berkeley Database v5.
 
 %prep
 %setup -q
+%patch1 -p1
 
 %build
 cd build_unix
