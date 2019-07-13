@@ -1,6 +1,6 @@
 Name:           db
 Version:        5.3.28
-Release:        16
+Release:        17
 License:        Sleepycat
 Summary:        Berkeley Database v5
 Url:            http://www.oracle.com/technology/products/berkeley-db/db/index.html
@@ -80,6 +80,8 @@ then
     test ! -d "%{buildroot}%{_datadir}/doc" || rm -rf "%{buildroot}%{_datadir}/doc"
     mv "%{buildroot}%{_prefix}/docs" "%{buildroot}%{_datadir}/doc"
 fi
+cd -
+
 
 %files
 %{_libdir}/libdb-*.so
