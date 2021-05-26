@@ -1,0 +1,14 @@
+Patch for https://cov01.lab.eng.brq.redhat.com/el8-results/el8/libdb-5.3.28-31.el8+7/scan-results-imp.html#def1
+
+
+diff -up db-5.3.28/db.1.85/PORT/clib/snprintf.c.add_stdio_h db-5.3.28/db.1.85/PORT/clib/snprintf.c
+--- db-5.3.28/db.1.85/PORT/clib/snprintf.c.add_stdio_h	2019-02-11 10:01:03.386405802 +0100
++++ db-5.3.28/db.1.85/PORT/clib/snprintf.c	2019-02-11 10:01:26.805754113 +0100
+@@ -2,6 +2,7 @@
+ #include <sys/cdefs.h>
+ 
+ #include <compat.h>
++#include <stdio.h>
+ 
+ #ifdef __STDC__
+ #include <stdarg.h>

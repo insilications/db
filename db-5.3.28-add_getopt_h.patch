@@ -1,0 +1,14 @@
+Patch for coverity issue:
+    https://cov01.lab.eng.brq.redhat.com/el8-results/el8/libdb-5.3.28-31.el8+7/scan-results-imp.html#def182
+
+diff -up db-5.3.28/util/db_dump185.c.add_getopt_h db-5.3.28/util/db_dump185.c
+--- db-5.3.28/util/db_dump185.c.add_getopt_h	2019-02-11 10:20:37.739871387 +0100
++++ db-5.3.28/util/db_dump185.c	2019-02-11 10:21:11.348371222 +0100
+@@ -19,6 +19,7 @@ static const char copyright[] =
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <getopt.h>
+ 
+ #ifdef HAVE_DB_185_H
+ #include <db_185.h>

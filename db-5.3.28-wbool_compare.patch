@@ -1,0 +1,30 @@
+Patch for coverity issues:
+    https://cov01.lab.eng.brq.redhat.com/el8-results/el8/libdb-5.3.28-31.el8+7/scan-results-imp.html#def41
+    https://cov01.lab.eng.brq.redhat.com/el8-results/el8/libdb-5.3.28-31.el8+7/scan-results-imp.html#def42
+    https://cov01.lab.eng.brq.redhat.com/el8-results/el8/libdb-5.3.28-31.el8+7/scan-results-imp.html#def44
+    https://cov01.lab.eng.brq.redhat.com/el8-results/el8/libdb-5.3.28-31.el8+7/scan-results-imp.html#def45
+
+diff -up db-5.3.28/lang/sql/generated/sqlite3.c.libdb-5.3.28-31_coverity_41_42 db-5.3.28/lang/sql/generated/sqlite3.c
+--- db-5.3.28/lang/sql/generated/sqlite3.c.libdb-5.3.28-31_coverity_41_42	2018-11-26 15:01:56.427828116 +0100
++++ db-5.3.28/lang/sql/generated/sqlite3.c	2018-11-26 14:59:10.085403911 +0100
+@@ -114393,7 +114394,7 @@ static int deserializeGeometry(sqlite3_v
+   int nBlob;
+ 
+   /* Check that value is actually a blob. */
+-  if( !sqlite3_value_type(pValue)==SQLITE_BLOB ) return SQLITE_ERROR;
++  if( !(sqlite3_value_type(pValue)==SQLITE_BLOB) ) return SQLITE_ERROR;
+ 
+   /* Check that the blob is roughly the right size. */
+   nBlob = sqlite3_value_bytes(pValue);
+diff -up db-5.3.28/lang/sql/sqlite/ext/rtree/rtree.c.libdb-5.3.28-31_coverity_44_45 db-5.3.28/lang/sql/sqlite/ext/rtree/rtree.c
+--- db-5.3.28/lang/sql/sqlite/ext/rtree/rtree.c.libdb-5.3.28-31_coverity_44_45	2018-11-26 15:07:02.732326934 +0100
++++ db-5.3.28/lang/sql/sqlite/ext/rtree/rtree.c	2018-11-26 15:07:43.104917470 +0100
+@@ -1193,7 +1193,7 @@ static int deserializeGeometry(sqlite3_v
+   int nBlob;
+ 
+   /* Check that value is actually a blob. */
+-  if( !sqlite3_value_type(pValue)==SQLITE_BLOB ) return SQLITE_ERROR;
++  if( !(sqlite3_value_type(pValue)==SQLITE_BLOB) ) return SQLITE_ERROR;
+ 
+   /* Check that the blob is roughly the right size. */
+   nBlob = sqlite3_value_bytes(pValue);

@@ -14,3 +14,7 @@ libdb-limit-cpu.patch
 libdb-5.3.21-trickle_cpu.patch
 db-5.3.28_cve-2019-2708.patch
 db-6.0.20-test-link.patch
+db-5.3.28-add_getopt_h.patch
+db-5.3.28-add_stdio_h.patch
+db-5.3.28-add_sys_file_h.patch
+db-5.3.28-wbool_compare.patch

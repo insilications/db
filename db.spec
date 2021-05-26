@@ -97,6 +97,10 @@ Patch12: libdb-limit-cpu.patch
 Patch13: libdb-5.3.21-trickle_cpu.patch
 Patch14: db-5.3.28_cve-2019-2708.patch
 Patch15: db-6.0.20-test-link.patch
+Patch16: db-5.3.28-add_getopt_h.patch
+Patch17: db-5.3.28-add_stdio_h.patch
+Patch18: db-5.3.28-add_sys_file_h.patch
+Patch19: db-5.3.28-wbool_compare.patch
 
 %description
 ODBC driver for SQLite interfacing SQLite 2.x and/or 3.x using the
@@ -123,6 +127,10 @@ cd %{_builddir}/db-5.3.28
 %patch13 -p1
 %patch14 -p1
 %patch15 -p1
+%patch16 -p1
+%patch17 -p1
+%patch18 -p1
+%patch19 -p1
 
 %build
 unset http_proxy
@@ -130,7 +138,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1622034953
+export SOURCE_DATE_EPOCH=1622036076
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
@@ -195,7 +203,6 @@ cd build_unix
     --disable-replication \
     --disable-verify \
     --enable-compat185 \
-    --enable-dump185 \
     --disable-sql \
     --enable-shared \
     --enable-static \
@@ -205,16 +212,16 @@ cd build_unix
     --with-tcl=/usr/lib64 \
     --enable-test
 ## make_prepend content
-perl -pi -e 's/^predep_objects=".*$/predep_objects=""/' libtool
-perl -pi -e 's/^postdep_objects=".*$/postdep_objects=""/' libtool
-perl -pi -e 's/-shared -nostdlib/-shared/' libtool
+# perl -pi -e 's/^predep_objects=".*$/predep_objects=""/' libtool
+# perl -pi -e 's/^postdep_objects=".*$/postdep_objects=""/' libtool
+# perl -pi -e 's/-shared -nostdlib/-shared/' libtool
 ## make_prepend end
 make  %{?_smp_mflags}    V=1 VERBOSE=1
 ## ccache stats
 ccache -s
 ## ccache stats
 
-echo "source ../../test/tcl/test.tcl; r env; r mut; r memp" | tclsh
+echo "source ../test/tcl/test.tcl; r env; mut001; mut002; r memp" | tclsh
 make clean
 echo USED > statuspgo
 fi
@@ -235,7 +242,6 @@ export LDFLAGS="${LDFLAGS_USE}"
     --disable-replication \
     --disable-verify \
     --enable-compat185 \
-    --enable-dump185 \
     --disable-sql \
     --enable-shared \
     --enable-static \
@@ -244,9 +250,9 @@ export LDFLAGS="${LDFLAGS_USE}"
     --disable-tcl \
     --disable-test
 ## make_prepend content
-perl -pi -e 's/^predep_objects=".*$/predep_objects=""/' libtool
-perl -pi -e 's/^postdep_objects=".*$/postdep_objects=""/' libtool
-perl -pi -e 's/-shared -nostdlib/-shared/' libtool
+# perl -pi -e 's/^predep_objects=".*$/predep_objects=""/' libtool
+# perl -pi -e 's/^postdep_objects=".*$/postdep_objects=""/' libtool
+# perl -pi -e 's/-shared -nostdlib/-shared/' libtool
 ## make_prepend end
 make  %{?_smp_mflags}    V=1 VERBOSE=1
 ## ccache stats
@@ -256,7 +262,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1622034953
+export SOURCE_DATE_EPOCH=1622036076
 rm -rf %{buildroot}
 ## install_macro start
 cd build_unix

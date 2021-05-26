@@ -1,1 +1,1 @@
-echo "source ../../test/tcl/test.tcl; r env; mut001; mut002; r memp" | tclsh
+echo "source ../test/tcl/test.tcl; r env; mut001; mut002; r memp" | tclsh
