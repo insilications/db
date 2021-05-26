@@ -1,1 +1,2 @@
 echo "source ../test/tcl/test.tcl; r env; mut001; mut002; r memp" | tclsh
+make realclean
