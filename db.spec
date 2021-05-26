@@ -5,13 +5,14 @@
 %define keepstatic 1
 Name     : db
 Version  : 5.3.28
-Release  : 19
+Release  : 20
 URL      : http://download.oracle.com/berkeley-db/db-5.3.28.tar.gz
 Source0  : http://download.oracle.com/berkeley-db/db-5.3.28.tar.gz
 Summary  : ODBC driver for SQLite
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
 Requires: db-bin = %{version}-%{release}
+Requires: db-cxx = %{version}-%{release}
 BuildRequires : acl-dev
 BuildRequires : acl-staticdev
 BuildRequires : apache-ant
@@ -118,6 +119,14 @@ Group: Binaries
 bin components for the db package.
 
 
+%package cxx
+Summary: cxx components for the db package.
+Group: Default
+
+%description cxx
+cxx components for the db package.
+
+
 %package dev
 Summary: dev components for the db package.
 Group: Development
@@ -175,7 +184,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1622037464
+export SOURCE_DATE_EPOCH=1622056939
 unset LD_AS_NEEDED
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
@@ -292,7 +301,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1622037464
+export SOURCE_DATE_EPOCH=1622056939
 rm -rf %{buildroot}
 ## install_macro start
 cd build_unix
@@ -336,6 +345,12 @@ cd -
 /usr/bin/db_upgrade
 /usr/bin/db_verify
 
+%files cxx
+%defattr(-,root,root,-)
+/usr/lib64/libdb_cxx-5.3.so
+/usr/lib64/libdb_cxx-5.so
+/usr/lib64/libdb_cxx.so
+
 %files dev
 %defattr(-,root,root,-)
 /usr/include/db.h
@@ -359,9 +374,6 @@ cd -
 /usr/lib64/libdb-5.3.so
 /usr/lib64/libdb-5.so
 /usr/lib64/libdb.so
-/usr/lib64/libdb_cxx-5.3.so
-/usr/lib64/libdb_cxx-5.so
-/usr/lib64/libdb_cxx.so
 /usr/lib64/libdb_stl-5.3.so
 /usr/lib64/libdb_stl-5.so
 /usr/lib64/libdb_stl.so
