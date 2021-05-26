@@ -11,4 +11,5 @@ cd build_unix
     --enable-shared \
     --enable-static \
     --enable-cxx \
+    --disable-rpath \
     --enable-test

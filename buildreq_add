@@ -1,4 +1,38 @@
 #
-# This file contains extra pkgconfig build requirements that don't get picked up but are 
+# This file contains extra pkgconfig build requirements that don't get picked up but are
 # desirable. One name per line, no whitespace.
 #
+acl-dev
+acl-staticdev
+automake
+automake-dev
+binutils-dev
+binutils-extras
+buildreq-cmake
+doxygen
+elfutils-dev
+gcc
+gcc-dev
+gcc-libs-math
+gcc-libstdc++32
+gcc-libubsan
+gcc-locale
+glibc-dev
+glibc-staticdev
+libedit
+libedit-dev
+libffi-dev
+libffi-staticdev
+libgcc1
+libstdc++
+libstdc++-dev
+libxml2-dev
+libxml2-staticdev
+m4
+ncurses-dev
+python3-dev
+python3-staticdev
+xz-dev
+xz-staticdev
+zlib-dev
+zlib-staticdev
