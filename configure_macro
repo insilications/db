@@ -13,7 +13,7 @@ cd build_unix
     --enable-shared \
     --enable-static \
     --enable-cxx \
-    --disable-rpath \
+    --enable-stl \
     --enable-tcl \
     --with-tcl=/usr/lib64 \
     --enable-test

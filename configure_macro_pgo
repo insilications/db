@@ -12,6 +12,6 @@
     --enable-shared \
     --enable-static \
     --enable-cxx \
-    --disable-rpath \
+    --enable-stl \
     --disable-tcl \
     --disable-test
