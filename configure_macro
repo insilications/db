@@ -4,6 +4,7 @@ cd build_unix
     --libdir=/usr/lib64 \
     --enable-o_direct \
     --disable-cryptography \
+    --with-cryptography=no \
     --disable-queue \
     --disable-replication \
     --disable-verify \

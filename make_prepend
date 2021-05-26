@@ -1,0 +1,3 @@
+perl -pi -e 's/^predep_objects=".*$/predep_objects=""/' libtool
+perl -pi -e 's/^postdep_objects=".*$/postdep_objects=""/' libtool
+perl -pi -e 's/-shared -nostdlib/-shared/' libtool

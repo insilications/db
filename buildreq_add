@@ -8,7 +8,6 @@ automake
 automake-dev
 binutils-dev
 binutils-extras
-buildreq-cmake
 doxygen
 elfutils-dev
 gcc
