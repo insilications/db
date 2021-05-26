@@ -11,7 +11,6 @@ cd build_unix
     --disable-replication \
     --disable-verify \
     --enable-compat185 \
-    --enable-dump185 \
     --disable-sql \
     --enable-shared \
     --enable-static \
