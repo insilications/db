@@ -1,0 +1,15 @@
+# Fix up headers
+mkdir -p %{buildroot}%{_includedir}/db51
+mv %{buildroot}%{_includedir}/db.h %{buildroot}%{_includedir}/db51/.
+mv %{buildroot}%{_includedir}/db_cxx.h %{buildroot}%{_includedir}/db51/.
+ln -sf db51/db.h %{buildroot}%{_includedir}/db.h
+ln -sf db51/db_cxx.h %{buildroot}%{_includedir}/db_cxx.h
+
+# The docs end up in /usr/docs - not right.
+if test -d "%{buildroot}%{_prefix}/docs"
+then
+    mkdir -p "%{buildroot}%{_prefix}/share"
+    test ! -d "%{buildroot}%{_datadir}/doc" || rm -rf "%{buildroot}%{_datadir}/doc"
+    mv "%{buildroot}%{_prefix}/docs" "%{buildroot}%{_datadir}/doc"
+fi
+cd -
