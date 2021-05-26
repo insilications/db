@@ -1,3 +1,5 @@
+#    --with-mutex=x86/gcc-assembly
+#    --enable-posixmutexes
 cd build_unix
 ../dist/configure \
     --prefix=/usr \
@@ -9,6 +11,7 @@ cd build_unix
     --disable-replication \
     --disable-verify \
     --enable-compat185 \
+    --enable-dump185 \
     --disable-sql \
     --enable-shared \
     --enable-static \

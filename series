@@ -1,4 +1,3 @@
-#atomic.patch
 db-5.3.21-memp_stat-upstream-fix.patch
 db-5.3.21-mutex_leak.patch
 db-5.3.28-lemon_hash.patch
@@ -9,7 +8,9 @@ db-5.3.28-cwd-db_config.patch
 libdb-5.3.21-region-size-check.patch
 checkpoint-opd-deadlock.patch
 db-5.3.28-atomic_compare_exchange.patch
+#atomic.patch
 libdb-cbd-race.patch
 libdb-limit-cpu.patch
 libdb-5.3.21-trickle_cpu.patch
 db-5.3.28_cve-2019-2708.patch
+db-6.0.20-test-link.patch

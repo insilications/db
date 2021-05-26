@@ -1,4 +1,1 @@
-make -j16 check V=1 VERBOSE=1 || :
-make -j16 test V=1 VERBOSE=1 || :
-make -j16 tests V=1 VERBOSE=1 || :
-echo "source ../test/tcl/test.tcl; r env; r mut; r memp" | tclsh || :
+echo "source ../../test/tcl/test.tcl; r env; mut001; mut002; r memp" | tclsh
